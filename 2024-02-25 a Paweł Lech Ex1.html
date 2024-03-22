@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paweł Lech, Lab 2, Zadanie a</title>
+
+    <style>
+        body {
+            background-color: #DDDDDD;
+        }
+
+        canvas {
+            background-color: white;
+            display: block;
+        }
+
+        #canvas-container-id {
+            border: 1px solid black;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Paweł Lech, Lab 2, zadanie a, example 5</h2>
+
+    <div id="canvas-container-id">
+        <canvas id="myCanvas" width="420" height="420">
+        </canvas>
+    </div>
+
+    <script>
+        "use strict";
+
+        var object = document.getElementById("myCanvas");
+        var context = object.getContext("2d");
+
+        //ciało
+       
+        var numberOfSides = 6,
+            size = 100,
+            Xcenter = 200,
+            Ycenter = 200;
+
+        context.beginPath();
+        context.moveTo(Xcenter + size * Math.cos(0), Ycenter + size * Math.sin(0));
+
+        for (var i = 1; i <= numberOfSides; i += 1) {
+            context.lineTo(Xcenter + size * Math.cos(i * 2 * Math.PI / numberOfSides), Ycenter + size * Math.sin(i * 2 * Math.PI / numberOfSides));
+        }
+
+        context.strokeStyle = "#000000";
+        context.lineWidth = 1;
+        context.stroke();
+        context.fillStyle = "#960CEA";
+        context.fill();
+        context.lineWidth = 2;
+        context.stroke();
+
+        //lewe oko
+        context.lineWidth = 1;
+        context.beginPath(160, 170);
+        context.arc(160, 170, 8, 0, 2 * Math.PI);
+
+        context.fillStyle = "white";
+        context.fill();
+        context.strokeStyle = "white";
+        context.stroke();
+
+        //czarny element lewego oka
+        context.beginPath(160, 170);
+        context.arc(160, 170, 4, 0, 2 * Math.PI);
+
+        context.fillStyle = "black";
+        context.fill();
+        context.strokeStyle = "black";
+        context.stroke();
+
+        context.beginPath(158, 169);
+        context.arc(158, 169, 1, 0, 2 * Math.PI);
+
+        context.fillStyle = "white";
+        context.fill();
+        context.strokeStyle = "white";
+        context.stroke();
+
+        //prawe oko
+        context.moveTo(240, 170);
+        context.arc(240, 170, 8, 0, 2 * Math.PI);
+
+        context.fillStyle = "white";
+        context.fill();
+        context.strokeStyle = "white";
+        context.stroke();
+
+        //czarny element prawego oka
+        context.beginPath(240, 170);
+        context.arc(240, 170, 4, 0, 2 * Math.PI);
+
+        context.fillStyle = "black";
+        context.fill();
+        context.strokeStyle = "black";
+        context.stroke();
+
+        //błysk w prawym oku
+        context.beginPath(238, 169);
+        context.arc(238, 169, 1, 0, 2 * Math.PI);
+
+        context.fillStyle = "white";
+        context.fill();
+        context.strokeStyle = "white";
+        context.stroke();
+
+        //uśmiech
+        context.beginPath(178, 225);
+        context.moveTo(178, 225);
+        context.quadraticCurveTo(200, 265, 223, 225);
+        context.moveTo(223, 225);
+        context.quadraticCurveTo(195, 235, 177, 225);
+        context.fillStyle = "black";
+        context.fill();
+        context.strokeStyle = "black";
+        context.stroke();
+
+        //lewy kącik ust
+        context.beginPath(177, 221);
+        context.moveTo(177, 221);
+        context.quadraticCurveTo(179, 225, 175, 230);
+        context.stroke();
+
+        //prawy kącik ust
+        context.beginPath(223, 221);
+        context.moveTo(223, 221);
+        context.quadraticCurveTo(221, 225, 225, 230);
+        context.stroke();
+
+
+        //zęby
+        context.beginPath(195, 230);
+        context.lineTo(195, 230);
+        context.lineTo(195, 235);
+        context.lineTo(205, 235);
+        context.lineTo(205, 230)
+        context.fillStyle = "white";
+        context.fill();
+        context.strokeStyle = "white";
+        context.stroke();
+
+        context.beginPath(200, 230);
+        context.lineTo(200, 230);
+        context.lineTo(200, 235);
+        context.strokeStyle = "black";
+        context.stroke();
+    </script>
+</body>
+
+</html>
